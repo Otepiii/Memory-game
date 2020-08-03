@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     squares.forEach(square => {
         square[i].onclick = function() {
-            if 
+            if (){
+                
+            }
         }
     });
 })
