@@ -5,33 +5,70 @@
 const cards = document.querySelectorAll(".memory-card");
 
 let hasFlippedCard = false;
+let lockboard = false; // variable to lock the cards if the clicked cards are not a match and renders the board not clickable for the time being
 let firstCard, secondCard
 
+
 function flipCard(){
+
+    if (lockboard) return; //if lockboard is true this will return and not execute the rest of the function
+    if ( this === firstCard) return; //this checks if the same card is clicked twice then it will return from the function
+
     this.classList.add("flip");
 
     if (!hasFlippedCard) {
         // first click
         hasFlippedCard= true;
         firstCard = this;    
-    } else {
+
+        return;
+
+    }
         // second click
         hasFlippedCard = false;
         secondCard=this;
 
-        // do cards match?
-        if (firstCard.dataset.framework === secondCard.dataset.framework)  {
-            
-            firstCard.removeEventListener("click", flipCard);
-            secondCard.removeEventListener("click", flipCard)
-        } else {
-            setTimeout(() => {
-// not a match
-firstCard.classList.remove("flip");
-secondCard.classList.remove("flip");
-}, 1500)
-            }   
-    }
+        checkForMatch();
 }
+
+function checkForMatch() {
+
+    let isMatch = firstCard.dataset.framework === 
+        secondCard.dataset.framework;
+      
+        isMatch ? disableCards() : unflipCards()
+   
+}
+
+function disableCards() {
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard)
+
+    resetBoard();
+}
+
+function unflipCards() {
+    lockboard = true;
+
+    setTimeout(() => {
+        // not a match
+        firstCard.classList.remove("flip");
+        secondCard.classList.remove("flip");
+
+        resetBoard();
+        }, 1500)
+}
+
+function resetBoard() { // this resets the board , first and second card to false and null using es6 destructuring assignment
+    [hasFlippedCard, lockboard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+}
+
+(function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
+    });
+})();
 
 cards.forEach(card => card.addEventListener("click", flipCard))
