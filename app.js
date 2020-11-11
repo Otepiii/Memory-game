@@ -64,11 +64,15 @@ function resetBoard() { // this resets the board , first and second card to fals
     [firstCard, secondCard] = [null, null];
 }
 
-(function shuffle() {
-    cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 12);
-        card.style.order = randomPos;
+(function shuffle() {  // this functions shuffles the card randomly and sets their positions by order
+    cards.forEach(card => { // foreach function makes the function go through each card
+        let randomPos = Math.floor(Math.random() * 12);// math.floor rounds the number to a whole number //math.random generates a random number to multipy by 12
+        card.style.order = randomPos; // this assigns the order position of each cards
     });
-})();
+})(); // by wrapping the function in a parenthesis and then writing a open and closed parenthesis right after it
+        // and makes it a IIFE (immediately invoked function expression) which means this function will be executed right after its definition
 
-cards.forEach(card => card.addEventListener("click", flipCard))
+cards.forEach(card => card.addEventListener("click", flipCard));
+
+var sample = document.getElementById("foobar");
+sample.play();

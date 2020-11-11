@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: myFirstFont;
+  src: url(assets/Friz\ Quadrata\ Bold.otf);
+  font-weight: bold;
+}
+
 body {
   position: absolute;
   left: 0%;
@@ -16,10 +22,29 @@ body {
   background: url(assets/padded.jpg);
 }
 
+#foobar {
+  display: none;
+}
+
+.title {
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 100%;
+  font-size: 3.5em;
+  font-family: myFirstFont;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(to bottom, #d19e34, #966223, #d19e34);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 3.2px black;
+}
+
 .memory-game {
   width: 640px;
   height: 640px;
-  margin: auto;
+  margin: 4.5em auto;
   display: flex;
   flex-wrap: wrap;
   perspective: 1000px;
