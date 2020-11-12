@@ -1,6 +1,11 @@
 // api example of champion square assets
 // http://ddragon.leagueoflegends.com/cdn/10.14.1/img/champion/Aatrox.png
 
+var audio = document.querySelector("#foobar")
+let start = document.querySelector(".overlay-text")
+start.addEventListener("click", () => {
+    audio.play();
+})
 
 const cards = document.querySelectorAll(".memory-card");
 
@@ -20,7 +25,7 @@ function flipCard(){
         // first click
         hasFlippedCard= true;
         firstCard = this;    
-
+    
         return;
 
     }
@@ -72,7 +77,9 @@ function resetBoard() { // this resets the board , first and second card to fals
 })(); // by wrapping the function in a parenthesis and then writing a open and closed parenthesis right after it
         // and makes it a IIFE (immediately invoked function expression) which means this function will be executed right after its definition
 
+
 cards.forEach(card => card.addEventListener("click", flipCard));
 
-var sample = document.getElementById("foobar");
-sample.play();
+
+
+

@@ -32,7 +32,7 @@ body {
   margin: 0 auto;
   margin-bottom: 2rem;
   width: 100%;
-  font-size: 3.5em;
+  font-size: 3em;
   font-family: myFirstFont;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.08);
   background: linear-gradient(to bottom, #d19e34, #966223, #d19e34);
@@ -88,4 +88,37 @@ body {
 
 .front-face {
   transform: rotateY(180deg);
+}
+
+.overlay-text {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  color: #d19e34;
+  font-family: myFirstFont;
+}
+
+.overlay-text.visible {
+  display: flex;
+  animation: overlay-grow 500ms forwards;
+}
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+    opacity: 0;
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 10em;
+    opacity: 1;
+  }
 }
