@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+audio {
+  display: none;
+}
+
 @font-face {
   font-family: myFirstFont;
   src: url(assets/Friz\ Quadrata\ Bold.otf);

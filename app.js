@@ -2,13 +2,18 @@
 // http://ddragon.leagueoflegends.com/cdn/10.14.1/img/champion/Aatrox.png
 
 var audio = document.querySelector("#foobar")
+var game = document.querySelector("#gamesound")
+var clickysound = document.querySelector("#click")
+var finish = document.querySelector("#finish")
+var match = document.querySelector("#match")
 let start = document.querySelector(".overlay-text")
+
+
 start.addEventListener("click", () => {
     start.classList.remove("visible")
     audio.play();
+    game.play();
 })
-
-
 
 const cards = document.querySelectorAll(".memory-card");
 
@@ -19,6 +24,7 @@ let firstCard, secondCard
 
 function flipCard(){
 
+
     if (lockboard) return; //if lockboard is true this will return and not execute the rest of the function
     if ( this === firstCard) return; //this checks if the same card is clicked twice then it will return from the function
 
@@ -28,11 +34,13 @@ function flipCard(){
         // first click
         hasFlippedCard= true;
         firstCard = this;    
+        clickysound.play()
     
         return;
 
     }
         // second click
+        clickysound.play()
         hasFlippedCard = false;
         secondCard=this;
 
@@ -40,17 +48,18 @@ function flipCard(){
 }
 
 function checkForMatch() {
-
+    // clickysound.play()
     let isMatch = firstCard.dataset.framework === 
         secondCard.dataset.framework;
       
         isMatch ? disableCards() : unflipCards()
-   
 }
 
 function disableCards() {
     firstCard.removeEventListener("click", flipCard);
-    secondCard.removeEventListener("click", flipCard)
+    secondCard.removeEventListener("click", flipCard);
+
+    match.play()
 
     resetBoard();
 }
@@ -62,7 +71,7 @@ function unflipCards() {
         // not a match
         firstCard.classList.remove("flip");
         secondCard.classList.remove("flip");
-
+        
         resetBoard();
         }, 1500)
 }
