@@ -104,6 +104,13 @@ body {
   font-family: myFirstFont;
 }
 
+.overlay-text-small {
+  font-size: 0.3em;
+  display: flex;
+  flex-direction: column;
+  animation: overlay-grow 500ms forwards;
+}
+
 .overlay-text.visible {
   display: flex;
   animation: overlay-grow 500ms forwards;
@@ -118,7 +125,35 @@ body {
 
   to {
     background-color: rgba(0, 0, 0, 0.8);
-    font-size: 10em;
+    font-size: 8em;
     opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .memory-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 10px);
+    height: calc(19% - 10px);
+    margin: 2px auto;
+  }
+
+  .title {
+    font-size: 2.1em;
+  }
+
+  @keyframes overlay-grow {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+      opacity: 0;
+    }
+
+    to {
+      background-color: rgba(0, 0, 0, 0.8);
+      font-size: 3em;
+      opacity: 1;
+    }
   }
 }

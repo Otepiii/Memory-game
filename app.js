@@ -4,8 +4,11 @@
 var audio = document.querySelector("#foobar")
 let start = document.querySelector(".overlay-text")
 start.addEventListener("click", () => {
+    start.classList.remove("visible")
     audio.play();
 })
+
+
 
 const cards = document.querySelectorAll(".memory-card");
 
