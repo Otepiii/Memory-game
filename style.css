@@ -131,6 +131,9 @@ body {
 }
 
 @media (max-width: 600px) {
+  .memory-game {
+    height: 550px;
+  }
   .memory-card {
     display: flex;
     flex-direction: column;
@@ -141,6 +144,7 @@ body {
 
   .title {
     font-size: 2.1em;
+    margin-top: -12%;
   }
 
   @keyframes overlay-grow {
