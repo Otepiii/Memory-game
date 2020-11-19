@@ -108,7 +108,7 @@ body {
   font-size: 0.3em;
   display: flex;
   flex-direction: column;
-  animation: overlay-grow 500ms forwards;
+  animation: overlay-grow 1000ms forwards;
 }
 
 .overlay-text.visible {
@@ -145,6 +145,10 @@ body {
   .title {
     font-size: 2.1em;
     margin-top: -12%;
+  }
+
+  .overlay-text {
+    bottom: 15%;
   }
 
   @keyframes overlay-grow {
