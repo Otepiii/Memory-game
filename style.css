@@ -65,7 +65,9 @@ body {
   border: none;
   transform: scale(1);
   transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
   transition: transform 0.5s;
+  overflow: visible !important;
 }
 
 .memory-card:active {
@@ -148,7 +150,7 @@ body {
 
   .title {
     font-size: 2.1em;
-    margin-top: -12%;
+    margin-top: -9%;
   }
 
   .overlay-text {
