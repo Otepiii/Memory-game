@@ -68,6 +68,7 @@ body {
   -webkit-transform-style: preserve-3d;
   transition: transform 0.5s;
   overflow: visible !important;
+  -webkit-overflow: visible !important;
 }
 
 .memory-card:active {
@@ -89,7 +90,8 @@ body {
   /* border: 2px solid rgb(139, 45, 66); */
   outline: none;
   border: none;
-  /* backface-visibility: hidden; */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .front-face {
