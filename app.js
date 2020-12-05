@@ -73,7 +73,7 @@ function unflipCards() {
         secondCard.classList.remove("flip");
         
         resetBoard();
-        }, 1500)
+        }, 1600)
 }
 
 function resetBoard() { // this resets the board , first and second card to false and null using es6 destructuring assignment
