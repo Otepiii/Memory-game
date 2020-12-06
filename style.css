@@ -172,3 +172,13 @@ body {
     }
   }
 }
+
+@media (max-width: 480px) {
+  .memory-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(25% - 10px);
+    height: calc(20% - 10px);
+    margin: 2px auto;
+  }
+}

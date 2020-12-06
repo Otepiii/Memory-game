@@ -32,9 +32,10 @@ function flipCard(){
 
     if (!hasFlippedCard) {
         // first click
+        clickysound.play()
         hasFlippedCard= true;
         firstCard = this;    
-        clickysound.play()
+        
     
         return;
 
@@ -56,10 +57,11 @@ function checkForMatch() {
 }
 
 function disableCards() {
+    match.play()
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
 
-    match.play()
+    
 
     resetBoard();
 }
