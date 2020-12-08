@@ -1,19 +1,35 @@
-var audio = new Audio();
-audio.src = "assets/File0120.mp3";
-var game = new Audio();
-game.src = "assets/10CrystalScar.mp3"
-var clickysound = new Audio();
-clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
-var finish = new Audio();
-finish.src = "assets/File0114.mp3"
-var match = new Audio();
-match.src = "assets/034_item_leviathan_buff_1.wav"
+// var audio = new Audio();
+// audio.src = "assets/File0120.mp3";
+// var game = new Audio();
+// game.src = "assets/10CrystalScar.mp3"
+// var clickysound = new Audio();
+// clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
+// var finish = new Audio();
+// finish.src = "assets/File0114.mp3"
+// var match = new Audio();
+// match.src = "assets/034_item_leviathan_buff_1.wav"
 let start = document.querySelector(".overlay-text")
+
+var context = new (window.AudioContext || window.webkitAudioContext)();
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
-    audio.play();
-    game.play();
+    var sound = new Pizzicato.Sound({ 
+        source: 'file',
+        options: { path: ['assets/File0120.mp3' ] }
+    }, function() {
+        console.log('sound file loaded!');
+        sound.play()
+    });
+    var game = new Pizzicato.Sound({ 
+        source: 'file',
+        options: { path: ['assets/10CrystalScar.mp3' ] }
+    }, function() {
+        console.log('game sound file loaded!');
+        game.play()
+    });
+    // sound.play();
+    // game.play();
 })
 
 const cards = document.querySelectorAll(".memory-card");
@@ -33,7 +49,13 @@ function flipCard(){
 
     if (!hasFlippedCard) {
         // first click
-        clickysound.play()
+        var click = new Pizzicato.Sound({ 
+            source: 'file',
+            options: { path: ['assets/075_item_sightward_lux_obd_01.mp3' ] }
+        }, function() {
+            console.log('click sound file loaded!');
+            click.play()
+        });
         hasFlippedCard= true;
         firstCard = this;    
         
@@ -42,7 +64,13 @@ function flipCard(){
 
     }
         // second click
-        clickysound.play()
+        var click = new Pizzicato.Sound({ 
+            source: 'file',
+            options: { path: ['assets/075_item_sightward_lux_obd_01.mp3' ] }
+        }, function() {
+            console.log('click sound file loaded!');
+            click.play()
+        });
         hasFlippedCard = false;
         secondCard=this;
 
@@ -58,7 +86,13 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    match.play()
+    var match = new Pizzicato.Sound({ 
+        source: 'file',
+        options: { path: ['assets/034_item_leviathan_buff_1.wav' ] }
+    }, function() {
+        console.log('matched cards sound file loaded!');
+        match.play()
+    });
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
 
