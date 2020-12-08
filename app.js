@@ -8,6 +8,13 @@ var finish = document.querySelector("#finish")
 var match = document.querySelector("#match")
 let start = document.querySelector(".overlay-text")
 
+// const AudioContext = window.AudioContext || window.webkitAudioContext;
+
+const ctx = new AudioContext();
+console.log(ctx)
+
+// const track = audioContext.createMediaElementSource(audioElement);
+
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
