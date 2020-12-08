@@ -50,7 +50,7 @@ function flipCard(){
 }
 
 function checkForMatch() {
-    clickysound.play()
+    // clickysound.play()
     let isMatch = firstCard.dataset.framework === 
         secondCard.dataset.framework;
       
