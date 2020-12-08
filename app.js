@@ -1,20 +1,14 @@
-// api example of champion square assets
-// http://ddragon.leagueoflegends.com/cdn/10.14.1/img/champion/Aatrox.png
-
-var audio = document.querySelector("#foobar")
-var game = document.querySelector("#gamesound")
-var clickysound = document.querySelector("#click")
-var finish = document.querySelector("#finish")
-var match = document.querySelector("#match")
+var audio = new Audio();
+audio.src = "assets/File0120.mp3";
+var game = new Audio();
+game.src = "assets/10CrystalScar.mp3"
+var clickysound = new Audio();
+clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
+var finish = new Audio();
+finish.src = "assets/File0114.mp3"
+var match = new Audio();
+match.src = "assets/034_item_leviathan_buff_1.wav"
 let start = document.querySelector(".overlay-text")
-
-// const AudioContext = window.AudioContext || window.webkitAudioContext;
-
-const ctx = new AudioContext();
-console.log(ctx)
-
-// const track = audioContext.createMediaElementSource(audioElement);
-
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
@@ -56,7 +50,7 @@ function flipCard(){
 }
 
 function checkForMatch() {
-    // clickysound.play()
+    clickysound.play()
     let isMatch = firstCard.dataset.framework === 
         secondCard.dataset.framework;
       
