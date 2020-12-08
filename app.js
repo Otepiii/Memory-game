@@ -10,7 +10,7 @@
 // match.src = "assets/034_item_leviathan_buff_1.wav"
 let start = document.querySelector(".overlay-text")
 
-var context = new (window.AudioContext || window.webkitAudioContext)();
+// var context = new (window.AudioContext || window.webkitAudioContext)();
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
