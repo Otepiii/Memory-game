@@ -1,24 +1,20 @@
 let start = document.querySelector(".overlay-text")
 
+var sound = new Howl({
+    src: ['assets/File0120.mp3']
+  });
+
+  var game = new Howl({
+    src: ['assets/10CrystalScar.mp3']
+  });
+
+
+
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
-    var sound = new Pizzicato.Sound({ 
-        source: 'file',
-        options: { path: ['assets/File0120.mp3' ] }
-    }, function() {
-        console.log('sound file loaded!');
-        sound.play()
-    });
-    var game = new Pizzicato.Sound({ 
-        source: 'file',
-        options: { path: ['assets/10CrystalScar.mp3' ] }
-    }, function() {
-        console.log('game sound file loaded!');
-        game.play()
-    });
-    // sound.play();
-    // game.play();
+    sound.play();
+    game.play();
 })
 
 const cards = document.querySelectorAll(".memory-card");
@@ -38,13 +34,10 @@ function flipCard(){
 
     if (!hasFlippedCard) {
         // first click
-        var click = new Pizzicato.Sound({ 
-            source: 'file',
-            options: { path: ['assets/075_item_sightward_lux_obd_01.mp3' ] }
-        }, function() {
-            console.log('click sound file loaded!');
-            click.play()
-        });
+        var click = new Howl({
+            src: ['assets/075_item_sightward_lux_obd_01.mp3']
+          });
+        click.play();
         hasFlippedCard= true;
         firstCard = this;    
         
@@ -53,13 +46,10 @@ function flipCard(){
 
     }
         // second click
-        var click = new Pizzicato.Sound({ 
-            source: 'file',
-            options: { path: ['assets/075_item_sightward_lux_obd_01.mp3' ] }
-        }, function() {
-            console.log('click sound file loaded!');
-            click.play()
-        });
+        var click = new Howl({
+            src: ['assets/075_item_sightward_lux_obd_01.mp3']
+          });
+        click.play();
         hasFlippedCard = false;
         secondCard=this;
 
@@ -75,13 +65,10 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    var match = new Pizzicato.Sound({ 
-        source: 'file',
-        options: { path: ['assets/034_item_leviathan_buff_1.wav' ] }
-    }, function() {
-        console.log('matched cards sound file loaded!');
-        match.play()
-    });
+    var click = new Howl({
+        src: ['assets/034_item_leviathan_buff_1.wav']
+      });
+    click.play();
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
 
