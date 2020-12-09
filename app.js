@@ -2,6 +2,9 @@ var finish = new Audio();
 finish.src = "assets/File0114.mp3"
 let start = document.querySelector(".overlay-text")
 
+const ctx =  new (window.AudioContext || window.webkitAudioContext)();
+
+
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
@@ -9,6 +12,11 @@ start.addEventListener("click", () => {
 audio.src = "assets/File0120.mp3";
 var game = new Audio();
 game.src = "assets/10CrystalScar.mp3"
+
+const audioElement = ctx.createMediaElementSource(audio);
+audioElement.connect(ctx.destination)
+const gameElement = ctx.createMediaElementSource(game);
+gameElement.connect(ctx.destination)
     audio.play();
     game.play();
 })
@@ -32,6 +40,9 @@ function flipCard(){
         // first click
         var clickysound = new Audio();
 clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
+
+const clickyElement = ctx.createMediaElementSource(clickysound);
+clickyElement.connect(ctx.destination)
         clickysound.play()
         hasFlippedCard= true;
         firstCard = this;    
@@ -44,6 +55,9 @@ clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
         var clickysound = new Audio();
 clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
         clickysound.play()
+
+        const clickyElement = ctx.createMediaElementSource(clickysound);
+clickyElement.connect(ctx.destination)
         hasFlippedCard = false;
         secondCard=this;
 
@@ -61,6 +75,9 @@ function checkForMatch() {
 function disableCards() {
     var match = new Audio();
 match.src = "assets/034_item_leviathan_buff_1.wav"
+
+const matchElement = ctx.createMediaElementSource(match);
+matchElement.connect(ctx.destination)
     match.play()
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
