@@ -1,28 +1,46 @@
-var finish = new Audio();
-finish.src = "assets/File0114.mp3"
+// var finish = new Audio();
+// finish.src = "assets/File0114.mp3"
+var audio = document.querySelector(".audio");
+var game = document.querySelector(".game");
+var click = document.querySelector(".click");
+var match = document.querySelector(".match");
+
 let start = document.querySelector(".overlay-text")
 
-const ctx =  new (window.AudioContext || window.webkitAudioContext)();
-let audio;
+// const ctx =  new (window.AudioContext || window.webkitAudioContext)();
+// let audio;
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
 
-    let audio;
-    fetch("assets/File0120.mp3")
-      .then(response => response.arrayBuffer())
-      .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-      .then(audioBuffer => {
-        audio = audioBuffer
-        const playAudio = ctx.createBufferSource();
-        playAudio.buffer = audio;
-        playAudio.connect(ctx.destination);
-        playAudio.start();
-      });
+    // const ctx =  new (window.AudioContext || window.webkitAudioContext)();
+    // let audio;
+
+    // fetch("assets/File0120.mp3")
+    //   .then(response => response.arrayBuffer())
+    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
+    //   .then(audioBuffer => {
+    //     audio = audioBuffer
+    //     const playAudio = ctx.createBufferSource();
+    //     playAudio.buffer = audio;
+    //     playAudio.connect(ctx.destination);
+    //     playAudio.start();
+    //   });
+
+    //   fetch("assets/10CrystalScar.mp3")
+    //   .then(response => response.arrayBuffer())
+    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
+    //   .then(audioBuffer => {
+    //     audio = audioBuffer
+    //     const playAudio = ctx.createBufferSource();
+    //     playAudio.buffer = audio;
+    //     playAudio.connect(ctx.destination);
+    //     playAudio.start();
+    //   })
         
    
-
-    // game.play();
+    audio.play();
+    game.play();
 })
 
 const cards = document.querySelectorAll(".memory-card");
@@ -42,17 +60,20 @@ function flipCard(){
 
     if (!hasFlippedCard) {
         // first click
-        let audio;
-    fetch("assets/075_item_sightward_lux_obd_01.mp3")
-      .then(response => response.arrayBuffer())
-      .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-      .then(audioBuffer => {
-        audio = audioBuffer
-        const playAudio = ctx.createBufferSource();
-        playAudio.buffer = audio;
-        playAudio.connect(ctx.destination);
-        playAudio.start();
-      })
+    //     const ctx =  new (window.AudioContext || window.webkitAudioContext)();
+    //     let audio;
+
+    // fetch("assets/075_item_sightward_lux_obd_01.mp3")
+    //   .then(response => response.arrayBuffer())
+    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
+    //   .then(audioBuffer => {
+    //     audio = audioBuffer
+    //     const playAudio = ctx.createBufferSource();
+    //     playAudio.buffer = audio;
+    //     playAudio.connect(ctx.destination);
+    //     playAudio.start();
+    //   });
+        click.play()
         hasFlippedCard= true;
         firstCard = this;    
         
@@ -61,17 +82,19 @@ function flipCard(){
 
     }
         // second click
-        var clickysound = new Audio();
-        fetch("assets/075_item_sightward_lux_obd_01.mp3")
-        .then(response => response.arrayBuffer())
-        .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-        .then(audioBuffer => {
-          audio = audioBuffer
-          const playAudio = ctx.createBufferSource();
-          playAudio.buffer = audio;
-          playAudio.connect(ctx.destination);
-          playAudio.start();
-        })
+        // const ctx =  new (window.AudioContext || window.webkitAudioContext)();
+        // let audio;
+        // fetch("assets/075_item_sightward_lux_obd_01.mp3")
+        // .then(response => response.arrayBuffer())
+        // .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
+        // .then(audioBuffer => {
+        //   audio = audioBuffer
+        //   const playAudio = ctx.createBufferSource();
+        //   playAudio.buffer = audio;
+        //   playAudio.connect(ctx.destination);
+        //   playAudio.start();
+        // })
+        click.play();
         hasFlippedCard = false;
         secondCard=this;
 
@@ -87,16 +110,20 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    fetch("assets/034_item_leviathan_buff_1.wav")
-      .then(response => response.arrayBuffer())
-      .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-      .then(audioBuffer => {
-        audio = audioBuffer
-        const playAudio = ctx.createBufferSource();
-        playAudio.buffer = audio;
-        playAudio.connect(ctx.destination);
-        playAudio.start();
-      })
+    // const ctx =  new (window.AudioContext || window.webkitAudioContext)();
+    // let audio;
+
+    // fetch("assets/034_item_leviathan_buff_1.wav")
+    //   .then(response => response.arrayBuffer())
+    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
+    //   .then(audioBuffer => {
+    //     audio = audioBuffer
+    //     const playAudio = ctx.createBufferSource();
+    //     playAudio.buffer = audio;
+    //     playAudio.connect(ctx.destination);
+    //     playAudio.start();
+    //   })
+    match.play()
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
 
