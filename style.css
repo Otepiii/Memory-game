@@ -98,7 +98,8 @@ body {
   transform: rotateY(180deg);
 }
 
-.overlay-text {
+.overlay-text,
+.victory-text {
   display: none;
   position: fixed;
   top: 0;
@@ -114,13 +115,11 @@ body {
 
 .overlay-text-small {
   font-size: 0.3em;
-  display: flex;
-  flex-direction: column;
-  animation: overlay-grow 1000ms forwards;
 }
 
 .overlay-text.visible {
   display: flex;
+  flex-direction: column;
   animation: overlay-grow 500ms forwards;
 }
 
