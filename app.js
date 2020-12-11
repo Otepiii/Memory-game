@@ -1,44 +1,14 @@
-// var finish = new Audio();
-// finish.src = "assets/File0114.mp3"
-var audio = document.querySelector(".audio");
-var game = document.querySelector(".game");
-var click = document.querySelector(".click");
-var match = document.querySelector(".match");
-
+var finish = new Audio();
+finish.src = "assets/File0114.mp3"
 let start = document.querySelector(".overlay-text")
 
-// const ctx =  new (window.AudioContext || window.webkitAudioContext)();
-// let audio;
 
 start.addEventListener("click", () => {
     start.classList.remove("visible")
-
-    // const ctx =  new (window.AudioContext || window.webkitAudioContext)();
-    // let audio;
-
-    // fetch("assets/File0120.mp3")
-    //   .then(response => response.arrayBuffer())
-    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-    //   .then(audioBuffer => {
-    //     audio = audioBuffer
-    //     const playAudio = ctx.createBufferSource();
-    //     playAudio.buffer = audio;
-    //     playAudio.connect(ctx.destination);
-    //     playAudio.start();
-    //   });
-
-    //   fetch("assets/10CrystalScar.mp3")
-    //   .then(response => response.arrayBuffer())
-    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-    //   .then(audioBuffer => {
-    //     audio = audioBuffer
-    //     const playAudio = ctx.createBufferSource();
-    //     playAudio.buffer = audio;
-    //     playAudio.connect(ctx.destination);
-    //     playAudio.start();
-    //   })
-        
-   
+    var audio = new Audio();
+audio.src = "assets/File0120.mp3";
+var game = new Audio();
+game.src = "assets/10CrystalScar.mp3"
     audio.play();
     game.play();
 })
@@ -60,20 +30,9 @@ function flipCard(){
 
     if (!hasFlippedCard) {
         // first click
-    //     const ctx =  new (window.AudioContext || window.webkitAudioContext)();
-    //     let audio;
-
-    // fetch("assets/075_item_sightward_lux_obd_01.mp3")
-    //   .then(response => response.arrayBuffer())
-    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-    //   .then(audioBuffer => {
-    //     audio = audioBuffer
-    //     const playAudio = ctx.createBufferSource();
-    //     playAudio.buffer = audio;
-    //     playAudio.connect(ctx.destination);
-    //     playAudio.start();
-    //   });
-        click.play()
+        var clickysound = new Audio();
+clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
+        clickysound.play()
         hasFlippedCard= true;
         firstCard = this;    
         
@@ -82,19 +41,9 @@ function flipCard(){
 
     }
         // second click
-        // const ctx =  new (window.AudioContext || window.webkitAudioContext)();
-        // let audio;
-        // fetch("assets/075_item_sightward_lux_obd_01.mp3")
-        // .then(response => response.arrayBuffer())
-        // .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-        // .then(audioBuffer => {
-        //   audio = audioBuffer
-        //   const playAudio = ctx.createBufferSource();
-        //   playAudio.buffer = audio;
-        //   playAudio.connect(ctx.destination);
-        //   playAudio.start();
-        // })
-        click.play();
+        var clickysound = new Audio();
+clickysound.src = "assets/075_item_sightward_lux_obd_01.mp3"
+        clickysound.play()
         hasFlippedCard = false;
         secondCard=this;
 
@@ -110,19 +59,8 @@ function checkForMatch() {
 }
 
 function disableCards() {
-    // const ctx =  new (window.AudioContext || window.webkitAudioContext)();
-    // let audio;
-
-    // fetch("assets/034_item_leviathan_buff_1.wav")
-    //   .then(response => response.arrayBuffer())
-    //   .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
-    //   .then(audioBuffer => {
-    //     audio = audioBuffer
-    //     const playAudio = ctx.createBufferSource();
-    //     playAudio.buffer = audio;
-    //     playAudio.connect(ctx.destination);
-    //     playAudio.start();
-    //   })
+    var match = new Audio();
+match.src = "assets/034_item_leviathan_buff_1.wav"
     match.play()
     firstCard.removeEventListener("click", flipCard);
     secondCard.removeEventListener("click", flipCard);
@@ -159,7 +97,3 @@ function resetBoard() { // this resets the board , first and second card to fals
 
 
 cards.forEach(card => card.addEventListener("click", flipCard));
-
-
-
-
